@@ -17,25 +17,26 @@
       <a href="#tours" class="cta-button">Забронировать экскурсию</a>
     </div>
   </header>
-<section class="advantages">
-  <div class="container">
-    <h2>Наши преимущества</h2>
-    <ul>
-      <li>
-        <span class="advantage-icon">✅</span>
-        <strong>Эксперты по Петербургу</strong> – мы знаем город лучше, чем кто-либо.
-      </li>
-      <li>
-        <span class="advantage-icon">✅</span>
-        <strong>Маршруты, которые не найдешь в путеводителе</strong> – тайные дворы, виды с крыш, легенды города.
-      </li>
-      <li>
-        <span class="advantage-icon">✅</span>
-        <strong>Выбираете вы</strong> – гибкое расписание и удобный формат экскурсий.
-      </li>
-    </ul>
-  </div>
-</section>
+
+  <section class="advantages">
+    <div class="container">
+      <h2>Наши преимущества</h2>
+      <ul>
+        <li>
+          <span class="advantage-icon">✅</span>
+          <strong>Эксперты по Петербургу</strong> – мы знаем город лучше, чем кто-либо.
+        </li>
+        <li>
+          <span class="advantage-icon">✅</span>
+          <strong>Маршруты, которые не найдешь в путеводителе</strong> – тайные дворы, виды с крыш, легенды города.
+        </li>
+        <li>
+          <span class="advantage-icon">✅</span>
+          <strong>Выбираете вы</strong> – гибкое расписание и удобный формат экскурсий.
+        </li>
+      </ul>
+    </div>
+  </section>
 
   <main>
     <section id="tours" class="tours">
@@ -44,6 +45,7 @@
         <div class="tour-item">
           <h3>Пешеходная экскурсия по Невскому проспекту</h3>
           <p>Прогулка по самому знаковому проспекту Санкт-Петербурга.</p>
+          <!-- Кнопка открывает bottom sheet (id ниже) -->
           <button class="cta-button" data-modal="tour1Modal">Подробнее</button>
         </div>
       </div>
@@ -56,9 +58,9 @@
     </div>
   </footer>
 
-  <!-- Модальное окно -->
-  <div id="tour1Modal" class="modal" role="dialog" aria-labelledby="tour1ModalTitle" aria-modal="true">
-    <div class="modal-content" tabindex="-1">
+  <!-- Bottom Sheet вместо модального окна -->
+  <div id="tour1Modal" class="bottom-sheet" role="dialog" aria-labelledby="tour1ModalTitle" aria-modal="true">
+    <div class="bottom-sheet-content" tabindex="-1">
       <button class="close" aria-label="Закрыть">&times;</button>
       <h2 id="tour1ModalTitle">Пешеходная экскурсия по Невскому проспекту</h2>
       <div class="carousel" tabindex="0">
@@ -71,7 +73,7 @@
         <button class="next" aria-label="Следующий слайд">&#10095;</button>
       </div>
       <p>Дополнительная информация о туре, включая маршрут и достопримечательности.</p>
-      <div class="booking-form">
+      <form class="booking-form">
         <h3>Забронируйте тур</h3>
         <div class="form-group">
           <label for="calendar">Выберите дату:</label>
@@ -89,9 +91,9 @@
           <label for="phone">Ваш телефон:</label>
           <input type="tel" id="phone" placeholder="Ваш телефон">
         </div>
-        <button id="bookTourButton" class="booking-button">Забронировать</button>
+        <button id="bookTourButton" type="button" class="booking-button">Забронировать</button>
         <div class="confirmation" id="confirmationMessage">Ваше бронирование подтверждено!</div>
-      </div>
+      </form>
     </div>
   </div>
 
