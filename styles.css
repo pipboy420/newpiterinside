@@ -390,3 +390,30 @@ section::after {
     padding: 50px 0;
   }
 }
+@media (min-width: 769px) {
+  .bottom-sheet {
+    width: auto;
+    max-width: 700px;  /* Ограничиваем ширину для ПК */
+    left: 50%;
+    right: auto;
+    top: 50%;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+  }
+}
+@media (min-width: 769px) {
+  .bottom-sheet {
+    width: auto;
+    max-width: 700px;
+    left: 50%;
+    right: auto;
+    top: 50%;
+    bottom: auto;
+    /* По умолчанию окно скрыто (сдвинуто вниз за экран) */
+    transform: translate(-50%, 100%);
+  }
+  .bottom-sheet.show {
+    /* При добавлении класса show окно центрируется */
+    transform: translate(-50%, -50%);
+  }
+}
