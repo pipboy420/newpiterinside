@@ -4,22 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="Экскурсии по Санкт-Петербургу. Откройте город с новой стороны, бронируйте туры и наслаждайтесь атмосферой города.">
+  <!-- Дополнительные мета-теги для SEO -->
+  <meta name="description" content="Экскурсии по Санкт-Петербургу. Уникальные маршруты, гибкое расписание, бронируйте туры онлайн.">
+  <meta name="keywords" content="Санкт-Петербург, экскурсии, туры, путешествия, достопримечательности">
+  <!-- Open Graph теги (для соцсетей) -->
+  <meta property="og:title" content="Экскурсии по Санкт-Петербургу">
+  <meta property="og:description" content="Уникальные экскурсии и туры в Санкт-Петербурге. Откройте город с новой стороны!">
+  <meta property="og:image" content="images/header.jpg">
   <title>Экскурсии по Санкт-Петербургу</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 <body>
-  <header class="hero">
+  <!-- Шапка сайта c навигационным меню -->
+  <header class="site-header">
+    <div class="container navbar">
+      <div class="brand">
+        <a href="#hero">SPB Tours</a>
+      </div>
+      <nav class="main-nav" aria-label="Основная навигация">
+        <ul>
+          <li><a href="#tours">Туры</a></li>
+          <li><a href="#advantages">Преимущества</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero-секция с параллакс-эффектом -->
+  <section id="hero" class="hero">
     <div class="container">
       <h1>Откройте Санкт-Петербург с другой стороны</h1>
       <p>Погрузитесь в атмосферу одного из самых величественных городов мира.</p>
       <a href="#tours" class="cta-button">Забронировать экскурсию</a>
     </div>
-  </header>
+  </section>
 
-  <section class="advantages">
-    <div class="container">
+  <!-- Преимущества -->
+  <section id="advantages" class="advantages">
+    <div class="container fade-in">
       <h2>Наши преимущества</h2>
       <ul>
         <li>
@@ -28,71 +52,144 @@
         </li>
         <li>
           <span class="advantage-icon">✅</span>
-          <strong>Маршруты, которые не найдешь в путеводителе</strong> – тайные дворы, виды с крыш, легенды города.
+          <strong>Маршруты, которых нет в путеводителях</strong> – тайные дворы, виды с крыш, легенды города.
         </li>
         <li>
           <span class="advantage-icon">✅</span>
-          <strong>Выбираете вы</strong> – гибкое расписание и удобный формат экскурсий.
+          <strong>Выбираете вы</strong> – гибкое расписание, комфортные форматы экскурсий.
         </li>
       </ul>
     </div>
   </section>
 
+  <!-- Раздел туров -->
   <main>
     <section id="tours" class="tours">
-      <div class="container">
+      <div class="container slide-up">
         <h2>Наши туры</h2>
+        
         <div class="tour-item">
           <h3>Пешеходная экскурсия по Невскому проспекту</h3>
-          <p>Прогулка по самому знаковому проспекту Санкт-Петербурга.</p>
-          <!-- Кнопка открывает bottom sheet (id ниже) -->
+          <p>Прогулка по самому знаковому проспекту Санкт-Петербурга, где каждый дом хранит свою историю.</p>
           <button class="cta-button" data-modal="tour1Modal">Подробнее</button>
+        </div>
+
+        <div class="tour-item">
+          <h3>Загадочные дворы и крыши</h3>
+          <p>Исследуйте скрытые дворы-колодцы и полюбуйтесь панорамой города с легендарных петербургских крыш.</p>
+          <button class="cta-button" data-modal="tour2Modal">Подробнее</button>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- Контакты / карта -->
+  <section id="contacts" class="contacts">
+    <div class="container fade-in">
+      <h2>Контакты</h2>
+      <p>+7 (900) 123-45-67 | info@spbtours.com</p>
+      <p>Мы находимся по адресу: Невский проспект, дом 1</p>
+      <!-- Для примера: встроенная карта (можно заменить на ссылку или другой сервис) -->
+      <div class="map-container">
+        <!-- Замените src на реальный адрес карты, если потребуется -->
+        <iframe
+          src="https://yandex.ru/map-widget/v1/?um=constructor%3A9f1ae16adcdfc1231d06c6ed0399afc308a1397f606c12b999ba5abd7c916a9f&amp;source=constructor"
+          width="100%" height="400" frameborder="0">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
     <div class="container">
-      <p>&copy; 2025 Все права защищены</p>
+      <p>&copy; 2025 SPB Tours. Все права защищены.</p>
     </div>
   </footer>
 
-  <!-- Bottom Sheet вместо модального окна -->
+  <!-- Bottom Sheet #1 -->
   <div id="tour1Modal" class="bottom-sheet" role="dialog" aria-labelledby="tour1ModalTitle" aria-modal="true">
     <div class="bottom-sheet-content" tabindex="-1">
-      <button class="close" aria-label="Закрыть">&times;</button>
+      <button class="close" aria-label="Закрыть окно">&times;</button>
       <h2 id="tour1ModalTitle">Пешеходная экскурсия по Невскому проспекту</h2>
       <div class="carousel" tabindex="0">
         <div class="carousel-images">
-          <img src="images/image1.jpeg" alt="Фото 1" class="active" loading="lazy">
-          <img src="images/image2.jpeg" alt="Фото 2" loading="lazy">
-          <img src="images/image3.jpeg" alt="Фото 3" loading="lazy">
+          <!-- Подписи alt более информативные -->
+          <img src="images/image1.jpeg" alt="Вид на Невский проспект утром" class="active" loading="lazy">
+          <img src="images/image2.jpeg" alt="Историческое здание на Невском проспекте" loading="lazy">
+          <img src="images/image3.jpeg" alt="Архитектура на Невском проспекте" loading="lazy">
         </div>
         <button class="prev" aria-label="Предыдущий слайд">&#10094;</button>
         <button class="next" aria-label="Следующий слайд">&#10095;</button>
       </div>
-      <p>Дополнительная информация о туре, включая маршрут и достопримечательности.</p>
+      <p>Дополнительная информация о туре, включая маршрут и достопримечательности. Продолжительность: 2 часа. Группа: до 10 человек.</p>
       <form class="booking-form">
         <h3>Забронируйте тур</h3>
         <div class="form-group">
-          <label for="calendar">Выберите дату:</label>
-          <input type="text" id="calendar" placeholder="Выберите дату">
+          <label for="calendar1">Выберите дату:</label>
+          <input type="text" id="calendar1" placeholder="Выберите дату">
         </div>
         <div class="form-group">
-          <label for="timeSelect">Время:</label>
-          <input type="time" id="timeSelect" value="12:00">
+          <label for="timeSelect1">Время:</label>
+          <input type="time" id="timeSelect1" value="12:00">
         </div>
         <div class="form-group">
-          <label for="name">Ваше имя:</label>
-          <input type="text" id="name" placeholder="Ваше имя">
+          <label for="name1">Ваше имя:</label>
+          <input type="text" id="name1" placeholder="Ваше имя">
         </div>
         <div class="form-group">
-          <label for="phone">Ваш телефон:</label>
-          <input type="tel" id="phone" placeholder="Ваш телефон">
+          <label for="phone1">Ваш телефон:</label>
+          <input type="tel" id="phone1" placeholder="Ваш телефон">
         </div>
-        <button id="bookTourButton" type="button" class="booking-button">Забронировать</button>
-        <div class="confirmation" id="confirmationMessage">Ваше бронирование подтверждено!</div>
+        <div class="form-group">
+          <label for="email1">Ваш email:</label>
+          <input type="email" id="email1" placeholder="Ваш email">
+        </div>
+        <button data-booking-id="1" type="button" class="booking-button">Забронировать</button>
+        <div class="confirmation" id="confirmationMessage1">Ваше бронирование подтверждено!</div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bottom Sheet #2 -->
+  <div id="tour2Modal" class="bottom-sheet" role="dialog" aria-labelledby="tour2ModalTitle" aria-modal="true">
+    <div class="bottom-sheet-content" tabindex="-1">
+      <button class="close" aria-label="Закрыть окно">&times;</button>
+      <h2 id="tour2ModalTitle">Загадочные дворы и крыши</h2>
+      <div class="carousel" tabindex="0">
+        <div class="carousel-images">
+          <img src="images/roofs1.jpeg" alt="Вид на петербургские дворы" class="active" loading="lazy">
+          <img src="images/roofs2.jpeg" alt="Подъём на крышу в центре города" loading="lazy">
+          <img src="images/roofs3.jpeg" alt="Панорама Петербурга с высоты крыши" loading="lazy">
+        </div>
+        <button class="prev" aria-label="Предыдущий слайд">&#10094;</button>
+        <button class="next" aria-label="Следующий слайд">&#10095;</button>
+      </div>
+      <p>Исследуйте знаменитые дворы-колодцы Петербурга и полюбуйтесь городскими панорамами с крыш. Продолжительность: 3 часа. Группа: до 6 человек.</p>
+      <form class="booking-form">
+        <h3>Забронируйте тур</h3>
+        <div class="form-group">
+          <label for="calendar2">Выберите дату:</label>
+          <input type="text" id="calendar2" placeholder="Выберите дату">
+        </div>
+        <div class="form-group">
+          <label for="timeSelect2">Время:</label>
+          <input type="time" id="timeSelect2" value="14:00">
+        </div>
+        <div class="form-group">
+          <label for="name2">Ваше имя:</label>
+          <input type="text" id="name2" placeholder="Ваше имя">
+        </div>
+        <div class="form-group">
+          <label for="phone2">Ваш телефон:</label>
+          <input type="tel" id="phone2" placeholder="Ваш телефон">
+        </div>
+        <div class="form-group">
+          <label for="email2">Ваш email:</label>
+          <input type="email" id="email2" placeholder="Ваш email">
+        </div>
+        <button data-booking-id="2" type="button" class="booking-button">Забронировать</button>
+        <div class="confirmation" id="confirmationMessage2">Ваше бронирование подтверждено!</div>
       </form>
     </div>
   </div>
