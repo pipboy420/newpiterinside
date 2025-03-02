@@ -1,8 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Анимации появления
+  // Параллакс-эффект для хедера
+  const hero = document.querySelector(".hero");
+  window.addEventListener("scroll", () => {
+    const scrollPos = window.pageYOffset;
+    if (hero) {
+      hero.style.backgroundPositionY = -(scrollPos * 0.5) + "px";
+    }
+  });
+
+  // Анимации появления для элементов с классами .fade-in и .slide-up
   const fadeIns = document.querySelectorAll(".fade-in");
   const slideUps = document.querySelectorAll(".slide-up");
-
   function handleScroll() {
     fadeIns.forEach(el => {
       if (el.getBoundingClientRect().top < window.innerHeight * 0.9) {
@@ -18,49 +26,48 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", handleScroll);
   handleScroll();
 
-  // Открытие модального окна по data-атрибуту
+  // Открытие bottom sheet по data-атрибуту
   const modalButtons = document.querySelectorAll("[data-modal]");
   modalButtons.forEach(button => {
     button.addEventListener("click", function () {
-      const modalId = this.getAttribute("data-modal");
-      openModal(modalId);
+      const sheetId = this.getAttribute("data-modal");
+      openBottomSheet(sheetId);
     });
   });
 
-  function openModal(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-      modal.classList.add("show");
+  function openBottomSheet(sheetId) {
+    const sheet = document.getElementById(sheetId);
+    if (sheet) {
+      sheet.classList.add("show");
       document.body.style.overflow = "hidden";
-      const modalContent = modal.querySelector(".modal-content");
-      if (modalContent) {
-        modalContent.focus();
+      const sheetContent = sheet.querySelector(".bottom-sheet-content");
+      if (sheetContent) {
+        sheetContent.focus();
       }
     }
   }
 
-  // Функция закрытия модального окна
-  function closeModal(modal) {
-    if (modal) {
-      modal.classList.remove("show");
+  function closeBottomSheet(sheet) {
+    if (sheet) {
+      sheet.classList.remove("show");
       document.body.style.overflow = "auto";
     }
   }
 
-  // Закрытие модального окна при клике вне содержимого или по кнопке "закрыть"
-  document.querySelectorAll(".modal").forEach(modal => {
-    modal.addEventListener("click", (event) => {
-      if (event.target.classList.contains("modal") || event.target.classList.contains("close")) {
-        closeModal(modal);
+  // Закрытие bottom sheet при клике вне содержимого или по кнопке "close"
+  document.querySelectorAll(".bottom-sheet").forEach(sheet => {
+    sheet.addEventListener("click", event => {
+      if (event.target.classList.contains("bottom-sheet") || event.target.classList.contains("close")) {
+        closeBottomSheet(sheet);
       }
     });
   });
 
-  // Закрытие модального окна клавишей Escape
-  document.addEventListener("keydown", (event) => {
+  // Закрытие bottom sheet клавишей Escape
+  document.addEventListener("keydown", event => {
     if (event.key === "Escape") {
-      document.querySelectorAll(".modal.show").forEach(modal => {
-        closeModal(modal);
+      document.querySelectorAll(".bottom-sheet.show").forEach(sheet => {
+        closeBottomSheet(sheet);
       });
     }
   });
@@ -84,13 +91,11 @@ document.addEventListener("DOMContentLoaded", () => {
       nextButton.addEventListener("click", () => updateSlide(currentIndex + 1));
     }
 
-    // Автопрокрутка карусели
     setInterval(() => {
       updateSlide(currentIndex + 1);
     }, 4000);
 
-    // Обработка клавиатурной навигации для карусели (при наличии фокуса)
-    carousel.addEventListener("keydown", (event) => {
+    carousel.addEventListener("keydown", event => {
       if (event.key === "ArrowLeft") {
         updateSlide(currentIndex - 1);
       } else if (event.key === "ArrowRight") {
@@ -118,15 +123,13 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Имитация успешного бронирования
     confirmationMessage.style.display = "block";
 
-    // Скрываем сообщение через 3 секунды и закрываем модальное окно
     setTimeout(() => {
       confirmationMessage.style.display = "none";
-      const openModalElement = document.querySelector(".modal.show");
-      if (openModalElement) {
-        closeModal(openModalElement);
+      const openSheet = document.querySelector(".bottom-sheet.show");
+      if (openSheet) {
+        closeBottomSheet(openSheet);
       }
     }, 3000);
   }
