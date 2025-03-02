@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Экскурсии по Санкт-Петербургу. Откройте город с новой стороны, бронируйте туры и наслаждайтесь атмосферой города.">
+  <title>Экскурсии по Санкт-Петербургу</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <h1>Откройте Санкт-Петербург с другой стороны</h1>
+      <p>Погрузитесь в атмосферу одного из самых величественных городов мира.</p>
+      <a href="#tours" class="cta-button">Забронировать экскурсию</a>
+    </div>
+  </header>
+<section class="advantages">
+  <div class="container">
+    <h2>Наши преимущества</h2>
+    <ul>
+      <li>
+        <span class="advantage-icon">✅</span>
+        <strong>Эксперты по Петербургу</strong> – мы знаем город лучше, чем кто-либо.
+      </li>
+      <li>
+        <span class="advantage-icon">✅</span>
+        <strong>Маршруты, которые не найдешь в путеводителе</strong> – тайные дворы, виды с крыш, легенды города.
+      </li>
+      <li>
+        <span class="advantage-icon">✅</span>
+        <strong>Выбираете вы</strong> – гибкое расписание и удобный формат экскурсий.
+      </li>
+    </ul>
+  </div>
+</section>
+
+  <main>
+    <section id="tours" class="tours">
+      <div class="container">
+        <h2>Наши туры</h2>
+        <div class="tour-item">
+          <h3>Пешеходная экскурсия по Невскому проспекту</h3>
+          <p>Прогулка по самому знаковому проспекту Санкт-Петербурга.</p>
+          <button class="cta-button" data-modal="tour1Modal">Подробнее</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Все права защищены</p>
+    </div>
+  </footer>
+
+  <!-- Модальное окно -->
+  <div id="tour1Modal" class="modal" role="dialog" aria-labelledby="tour1ModalTitle" aria-modal="true">
+    <div class="modal-content" tabindex="-1">
+      <button class="close" aria-label="Закрыть">&times;</button>
+      <h2 id="tour1ModalTitle">Пешеходная экскурсия по Невскому проспекту</h2>
+      <div class="carousel" tabindex="0">
+        <div class="carousel-images">
+          <img src="images/image1.jpeg" alt="Фото 1" class="active" loading="lazy">
+          <img src="images/image2.jpeg" alt="Фото 2" loading="lazy">
+          <img src="images/image3.jpeg" alt="Фото 3" loading="lazy">
+        </div>
+        <button class="prev" aria-label="Предыдущий слайд">&#10094;</button>
+        <button class="next" aria-label="Следующий слайд">&#10095;</button>
+      </div>
+      <p>Дополнительная информация о туре, включая маршрут и достопримечательности.</p>
+      <div class="booking-form">
+        <h3>Забронируйте тур</h3>
+        <div class="form-group">
+          <label for="calendar">Выберите дату:</label>
+          <input type="text" id="calendar" placeholder="Выберите дату">
+        </div>
+        <div class="form-group">
+          <label for="timeSelect">Время:</label>
+          <input type="time" id="timeSelect" value="12:00">
+        </div>
+        <div class="form-group">
+          <label for="name">Ваше имя:</label>
+          <input type="text" id="name" placeholder="Ваше имя">
+        </div>
+        <div class="form-group">
+          <label for="phone">Ваш телефон:</label>
+          <input type="tel" id="phone" placeholder="Ваш телефон">
+        </div>
+        <button id="bookTourButton" class="booking-button">Забронировать</button>
+        <div class="confirmation" id="confirmationMessage">Ваше бронирование подтверждено!</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="script.js"></script>
+</body>
+</html>
