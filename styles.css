@@ -375,12 +375,15 @@ section::after {
 /* =============================== */
 @media (max-width: 768px) {
   .modal-content {
-    max-width: 90%;
+    max-width: 95%;
+    max-height: 90vh; /* Ограничение высоты */
+    overflow-y: auto; /* Прокрутка, если содержимое не помещается */
     padding: 20px;
   }
   .modal {
     padding: 10px;
   }
+}
   .cta-button, .booking-button {
     font-size: 18px;
     padding: 16px 55px;
